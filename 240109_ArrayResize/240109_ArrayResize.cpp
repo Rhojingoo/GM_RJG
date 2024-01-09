@@ -66,27 +66,26 @@ public:
             {
                 ArrPtr2[i] = ArrPtr[i];
             }
-            Release();
-
-            if (nullptr != ArrPtr2)
-            {
-                for (size_t i = 0; i < NumValue; i++)
-                {
-                    ArrPtr[i] = ArrPtr2[i];
-                }
-                delete ArrPtr2;
-                ArrPtr2 = nullptr;
-            }    
+            Release();       
         }  
         ArrPtr = new int[_Size];
+        if (nullptr != ArrPtr2)
+        {
+            for (size_t i = 0; i < NumValue; i++)
+            {
+                ArrPtr[i] = ArrPtr2[i];
+            }
+            delete ArrPtr2;
+            ArrPtr2 = nullptr;
+        }
     }
 
     void Release()
     {
-        if (nullptr != ArrPtr2)
+        if (nullptr != ArrPtr)
         {
-            delete[] ArrPtr2;
-            ArrPtr2 = nullptr;
+            delete[] ArrPtr;
+            ArrPtr = nullptr;
         }
     }
 
