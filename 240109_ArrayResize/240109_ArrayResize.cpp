@@ -1,20 +1,114 @@
-﻿// 240109_ArrayResize.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
+﻿#include <iostream>
+#include <ConsoleEngine/EngineDebug.h>
 
-#include <iostream>
+class IntArray
+{
+public:
+    IntArray(int _Size)
+    {
+        ReSize(_Size);
+    }
+
+    IntArray(const IntArray& _Other)
+    {
+        Copy(_Other);
+    }
+    ~IntArray()
+    {
+        Release();
+    }
+    void operator=(const IntArray& _Other)
+    {
+        Copy(_Other);
+    }
+
+    int& operator[](int _Count)
+    {
+        return ArrPtr[_Count];
+    }
+
+    int& Test(int _Count)
+    {
+        return ArrPtr[_Count];
+    }
+
+    int Num()
+    {
+        return NumValue;
+    }
+
+    void Copy(const IntArray& _Other)
+    {
+        NumValue = _Other.NumValue;
+
+        // 깊은 복사를 해줘야 합니다.
+        ReSize(NumValue);
+        for (int i = 0; i < NumValue; i++)
+        {
+            ArrPtr[i] = _Other.ArrPtr[i];
+        }
+    }
+
+    void ReSize(int _Size)
+    {
+        if (0 >= _Size)
+        {
+            MsgBoxAssert("배열의 크기가 0일수 없습니다");
+        }
+
+        NumValue = _Size;     
+
+
+        if (nullptr != ArrPtr)
+        {
+            ArrPtr2 = new int[NumValue];
+            for (int i = 0; i < NumValue; i++)
+            {
+                ArrPtr2[i] = ArrPtr[i];
+            }
+            Release();
+
+            if (nullptr != ArrPtr2)
+            {
+                for (size_t i = 0; i < NumValue; i++)
+                {
+                    ArrPtr[i] = ArrPtr2[i];
+                }
+                delete ArrPtr2;
+                ArrPtr2 = nullptr;
+            }    
+        }  
+        ArrPtr = new int[_Size];
+    }
+
+    void Release()
+    {
+        if (nullptr != ArrPtr2)
+        {
+            delete[] ArrPtr2;
+            ArrPtr2 = nullptr;
+        }
+    }
+
+private:
+    int NumValue = 0;
+    int* ArrPtr = nullptr;
+    int* ArrPtr2 = nullptr;
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    IntArray NewArray = IntArray(5);
+
+    for (int i = 0; i < NewArray.Num(); i++)
+    {
+        NewArray[i] = i;
+    }
+
+    NewArray.ReSize(1);
+
+    for (size_t i = 0; i < NewArray.Num(); i++)
+    {
+        std::cout << NewArray[i] << std::endl;
+    }
 }
-
-// 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
-// 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
-
-// 시작을 위한 팁: 
-//   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
-//   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
-//   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
-//   4. [오류 목록] 창을 사용하여 오류를 봅니다.
-//   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
