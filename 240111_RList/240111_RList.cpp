@@ -17,7 +17,7 @@ private:
 
 
 public:
-	class iterator
+	class iterator 
 	{
 		friend MyList;
 
@@ -41,20 +41,22 @@ public:
 			return CurNode->Data;
 		}
 
+		
 		// 연산자 겹지정 중에 
-		void operator++()
+		virtual void operator++()
 		{
 			CurNode = CurNode->Next;
 		}
 
 
-	private:
+	protected:
 		ListNode* CurNode = nullptr;
+	private:
 	};
 
 
 public:
-	class Reverce_iterator
+	class Reverce_iterator : public iterator
 	{
 		friend MyList;
 
@@ -64,29 +66,15 @@ public:
 		}
 
 		Reverce_iterator(ListNode* _CurNode)
-			: CurNode(_CurNode)
+			: iterator(_CurNode)
 		{
-		}
-
-		bool operator!=(const Reverce_iterator& _Other)
-		{
-			return CurNode != _Other.CurNode;
-		}
-
-		DataType& operator*()
-		{
-			return CurNode->Data;
 		}
 
 		// 연산자 겹지정 중에 
-		void operator++()
+		void operator++() override
 		{
 			CurNode = CurNode->Prev;
 		}
-
-
-	private:
-		ListNode* CurNode = nullptr;
 	};
 
 
