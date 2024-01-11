@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Galage", "Galage\Galage.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "240109_ArrayResize", "240109_ArrayResize\240109_ArrayResize.vcxproj", "{47AB568B-CCA5-45C8-B7C6-8914B8226CD5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "240111_RList", "240111_RList\240111_RList.vcxproj", "{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -44,6 +46,14 @@ Global
 		{47AB568B-CCA5-45C8-B7C6-8914B8226CD5}.Release|x64.Build.0 = Release|x64
 		{47AB568B-CCA5-45C8-B7C6-8914B8226CD5}.Release|x86.ActiveCfg = Release|Win32
 		{47AB568B-CCA5-45C8-B7C6-8914B8226CD5}.Release|x86.Build.0 = Release|Win32
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Debug|x64.ActiveCfg = Debug|x64
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Debug|x64.Build.0 = Debug|x64
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Debug|x86.ActiveCfg = Debug|Win32
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Debug|x86.Build.0 = Debug|Win32
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Release|x64.ActiveCfg = Release|x64
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Release|x64.Build.0 = Release|x64
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Release|x86.ActiveCfg = Release|Win32
+		{56874ECA-D5BB-4FEC-91ED-CD9713F43ADE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
