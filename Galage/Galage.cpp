@@ -15,7 +15,7 @@
 int main()
 {
     // 5분 이상 걸릴수 없다.
-    LeckCheck;
+    LeakCheck;
 
     ConsoleScreen NewScreen = ConsoleScreen();
     NewScreen.CreateScreen(/*&NewScreen => this, */20, 20);
