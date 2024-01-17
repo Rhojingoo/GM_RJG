@@ -43,7 +43,6 @@ public:
 protected:
 
 private:
-
 	int2 Pos = { 0, 0 };
 	char RenderChar = '@';
 };

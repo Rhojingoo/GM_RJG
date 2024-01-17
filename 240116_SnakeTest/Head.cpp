@@ -112,11 +112,11 @@ void Head::Update()
 		if (CurBody->GetPos() == GetPos())
 		{
 			Part* check = Back;
-			while (check->Back != nullptr)
+			while (check->GetBack() != nullptr)
 			{
-				check = check->Back;
-			}	
-			check->Back = CurBody;
+				check = check->GetBack();
+			}			
+			check->SetBack(CurBody);
 			CurBody->SetColcheck(check);
 			BodyManager::ResetBody();
 		}

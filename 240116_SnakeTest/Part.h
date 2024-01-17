@@ -5,7 +5,7 @@
 class Part : public ConsoleObject
 {
 public:
-	Part* Back = nullptr;
+	//Part* Back = nullptr;
 	enum class Direction
 	{
 		Right,
@@ -27,7 +27,12 @@ public:
 
 	Part* GetBack()
 	{
-		return Back;
+		return Back;		
+	}
+
+	void SetBack(Part* _set)
+	{
+		Back = _set;
 	}
 
 	static void SetOnMove()
@@ -45,8 +50,8 @@ public:
 		return Move;
 	}
 
-
 protected:
+	Part* Back = nullptr;
 	Part* Front = nullptr;
 	Direction mDirection = {};
 	Direction FrontDirection = {};
