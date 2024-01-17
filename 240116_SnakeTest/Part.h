@@ -5,6 +5,7 @@
 class Part : public ConsoleObject
 {
 public:
+	Part* Back = nullptr;
 	enum class Direction
 	{
 		Right,
@@ -45,7 +46,6 @@ public:
 	}
 
 
-	Part* Back = nullptr;
 protected:
 	Part* Front = nullptr;
 	Direction mDirection = {};
